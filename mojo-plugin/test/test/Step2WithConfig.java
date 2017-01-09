@@ -34,32 +34,32 @@ public class Step2WithConfig
     extends AbstractMojo
 {
 
-	/**
-	 * The Maven Project Object
-	 *
-	 * @parameter expression="\${project}"
-	 * @required
-	 * @readonly
-	 */
-	protected MavenProject project;
+  /**
+   * The Maven Project Object
+   *
+   * @parameter expression="\${project}"
+   * @required
+   * @readonly
+   */
+  protected MavenProject project;
 
-	/**
-	 * The Maven Session Object
-	 *
-	 * @parameter expression="\${session}"
-	 * @required
-	 * @readonly
-	 */
-	protected MavenSession session;
+  /**
+   * The Maven Session Object
+   *
+   * @parameter expression="\${session}"
+   * @required
+   * @readonly
+   */
+  protected MavenSession session;
 
-	/**
-	 * The Maven PluginManager Object
-	 *
-	 * @component
-	 * @required
-	 */
-	protected BuildPluginManager pluginManager;
-	
+  /**
+   * The Maven PluginManager Object
+   *
+   * @component
+   * @required
+   */
+  protected BuildPluginManager pluginManager;
+  
 
     public void execute()
         throws MojoExecutionException

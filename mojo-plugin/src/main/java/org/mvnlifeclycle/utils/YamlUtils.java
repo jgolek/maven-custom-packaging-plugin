@@ -10,11 +10,11 @@ import com.google.inject.internal.util.Lists;
 public class YamlUtils {
 
     public static Collection<File> listYamlFiles(File directory) {
-        if(directory != null  && directory.exists()){
-            return FileUtils.listFiles(directory, new String[]{"yml", "yaml"}, true);
-        }else{
+        if (directory != null && directory.exists()) {
+            return FileUtils.listFiles(directory, new String[] { "yml", "yaml" }, true);
+        } else {
             return Lists.newArrayList();
         }
     }
-    
+
 }
