@@ -1,0 +1,15 @@
+packaging: test-packaging-with-ant
+---
+validate: 
+   - name: step1
+     ant: 
+       - move:
+           file:   inputFile1
+           tofile: outputFile1
+       - move:
+           file:   inputFile2
+           tofile: outputFile2
+           include:
+             name: "include*"
+           exclude:
+             name: "exclude*"

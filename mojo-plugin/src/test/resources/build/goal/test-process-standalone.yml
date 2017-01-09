@@ -1,0 +1,53 @@
+packaging: none
+name: my-test-process
+---
+- name: package-testa
+  exec: 
+    "echo package: Das ist ein Test1"
+
+- name: step0 with ant
+  ant: 
+    - echo:
+        message1: "Das ist ein Test"
+        message2: "Das ist ein Test"
+        echo: 
+         message: "test"
+    - echo:
+        message: "Das ist ein Test"
+  
+- name: step1
+  plugin: mygroupid:myartifactid:myversion:mygoal
+       
+- name: step2
+  plugin: mygroupid:myartifactid:myversion:mygoal
+    
+- name: step3 with config
+  plugin: mygroupid:myartifactid:myversion:mygoal
+  plugin-config:
+      parameter1: value1
+      parameter2: value2
+      
+- name: step4 with config
+  plugin: mygroupid:myartifactid:myversion:mygoal
+  plugin-config:
+    parameters:
+     - parameter: 1
+     - parameter: 2
+     - parameter: 
+        test1: 1
+        test2: 2
+        test3: 
+          tests:
+           - test: 1
+           - test: 2
+    parameters2:
+     - parameter: 1
+     - parameter: 2
+     - parameter: 
+        test1: 1
+        test2: 2
+        test3: 
+          tests:
+           - test: 1
+           - test: 2/3
+      

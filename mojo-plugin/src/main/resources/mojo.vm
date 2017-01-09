@@ -1,0 +1,129 @@
+package $model.packageName;
+
+
+import static org.twdata.maven.mojoexecutor.MojoExecutor.artifactId;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.configuration;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.element;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.executeMojo;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.executionEnvironment;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.goal;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.groupId;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.name;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.plugin;
+import static org.twdata.maven.mojoexecutor.MojoExecutor.version;
+
+import static org.mvnlifeclycle.model.ElementWithAttributes.attribute;
+import static org.mvnlifeclycle.model.ElementWithAttributes.attributes;
+import static org.mvnlifeclycle.model.ElementWithAttributes.element;
+import static org.mvnlifeclycle.model.ElementWithAttributes.value;
+
+import org.apache.maven.execution.MavenSession;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.BuildPluginManager;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.project.MavenProject;
+
+
+/**
+ *
+ * @goal ${model.goal}
+ * @requiresDependencyResolution test
+ * 
+ */
+public class ${model.className}
+    extends AbstractMojo
+{
+
+	/**
+	 * The Maven Project Object
+	 *
+	 * @parameter expression="\${project}"
+	 * @required
+	 * @readonly
+	 */
+	protected MavenProject project;
+
+	/**
+	 * The Maven Session Object
+	 *
+	 * @parameter expression="\${session}"
+	 * @required
+	 * @readonly
+	 */
+	protected MavenSession session;
+
+	/**
+	 * The Maven PluginManager Object
+	 *
+	 * @component
+	 * @required
+	 */
+	protected BuildPluginManager pluginManager;
+	
+
+    public void execute()
+        throws MojoExecutionException
+    {
+#foreach ( $plugin in $model.plugins )   
+        getLog().info(" ");
+        getLog().info("--  ${plugin.name}  ----------------------");
+        getLog().info(" ");
+        executeMojo(
+                plugin(
+                        groupId("${plugin.groupId}"),
+                        artifactId("${plugin.artifactId}"),
+                        version("${plugin.version}")
+                ),
+                goal("${plugin.goal}"),
+                configuration(
+#foreach( $parameter in $plugin.configuration )
+#element($parameter, 5)#if( $foreach.hasNext ), 
+#end
+#end
+
+                ),
+                executionEnvironment(
+                        project,
+                        session,
+                        pluginManager
+                )
+        );
+        
+#end
+    }
+}
+
+#macro ( indent $size ) 
+#set($i = "    ")
+#foreach( $foo in [1..$size] )$i#end
+#end
+
+#macro ( subElement $parameter ) 
+#set( $indentSize = $indentSize + 1 )
+#foreach( $subParameter in $parameter.children )
+#element($subParameter, $indentSize)#if( $foreach.hasNext ),
+#end
+#end
+#set( $indentSize = $indentSize - 1 ) 
+#end
+
+
+#macro ( attributes $attributes )
+#set( $indentSize = $indentSize + 1 ) 
+#indent($indentSize) attributes(
+#foreach( $attribute in $attributes.keySet() )#indent($indentSize)        attribute("$attribute", "$attributes.get($attribute)")#if( $foreach.hasNext ),
+#end
+#end
+)#end
+
+
+#macro( element $parameter $indentSize )
+#indent($indentSize)element(name ("$parameter.name"),
+#if ( $parameter.hasAttributes() )
+    #attributes($parameter.attributes)
+#elseif ( $parameter.hasChildren() )
+#subElement($parameter)
+  #elseif ( $parameter.value )
+       #indent($indentSize) value("$parameter.value")#end
+        
+#indent($indentSize))#end

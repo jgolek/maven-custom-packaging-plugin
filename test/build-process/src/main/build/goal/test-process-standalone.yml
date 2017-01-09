@@ -1,0 +1,19 @@
+packaging: none
+name: my-test-goal
+---
+- name: testa
+  plugin: org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+  plugin-config: 
+    executable: echo
+    commandlineArgs: Das ist ein Test1
+- name: testb
+  plugin: org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+  plugin-config: 
+    executable: echo
+    commandlineArgs: Das ist ein Test2.1
+- name: testc
+  ant:
+    - echo:
+        message: "test1"
+
+    

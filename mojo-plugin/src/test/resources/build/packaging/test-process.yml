@@ -1,0 +1,17 @@
+packaging: test-packaging
+---
+phase1: 
+   -
+    name: step1
+    plugin: mygroupid:myartifactid:myversion:mygoal
+    
+phase2: 
+   -
+    name: step1
+    plugin: mygroupid:myartifactid:myversion:mygoal
+   -
+    name: step2 with config
+    plugin: mygroupid:myartifactid:myversion:mygoal
+    plugin-config:
+      parameter1: value1
+      parameter2: value2

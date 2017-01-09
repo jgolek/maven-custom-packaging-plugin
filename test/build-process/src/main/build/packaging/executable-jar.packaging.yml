@@ -1,0 +1,22 @@
+packaging: executable-jar
+
+---
+validate: 
+   -
+    name: testa
+    exec: 
+      "echo echo: package: Das ist ein Test1.1"
+   -
+    name: testb
+    exec: 
+      "echo echo: package: Das ist ein Test2.1"
+          
+
+package: 
+   -
+    name: package-testa
+    exec: 
+      "echo echo: package: Das ist ein Test 2.1"
+   -
+    name: package-testb
+    exec: "echo package: Das ist ein Test 2.2"

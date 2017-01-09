@@ -1,0 +1,17 @@
+packaging: none
+name: my-test-process
+
+---
+- name: step1
+  plugin: mygroupid:myartifactid:myversion:mygoal
+       
+- name: step2
+  plugin: mygroupid:myartifactid:myversion:mygoal
+    
+- name: step3 with config
+  plugin: mygroupid:myartifactid:myversion:mygoal
+  plugin-config-converter: "test"
+  plugin-config:
+      parameter1: value1
+      parameter2: value2
+      

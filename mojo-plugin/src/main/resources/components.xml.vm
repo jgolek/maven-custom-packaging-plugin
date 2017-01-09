@@ -1,0 +1,35 @@
+<component-set>
+    <components>
+#foreach($component in $model)
+        <component>
+            <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
+            <role-hint>$component.packaging</role-hint>
+            <implementation>
+                org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping
+            </implementation>
+            <configuration>
+                <phases>
+#foreach( $phase in $component.phases )
+                  <$phase.name>
+                    $phase.qualifiedMojoNames
+                  </$phase.name>
+#end
+                </phases>
+            </configuration>
+        </component>
+        <component>
+	      <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+	      <role-hint>$component.packaging</role-hint>
+	      <implementation>
+	        org.apache.maven.artifact.handler.DefaultArtifactHandler
+	      </implementation>
+	      <configuration>
+	        <type>$component.packaging</type>
+	        <extension>jar</extension>
+	        <!--<language>java</language>-->
+	        <addedToClasspath>true</addedToClasspath>
+	      </configuration>
+       </component>
+#end
+    </components>
+</component-set>

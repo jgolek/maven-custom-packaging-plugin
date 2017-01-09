@@ -1,0 +1,63 @@
+packaging: maven-plugin
+---
+generate-sources: 
+   -
+    name: add-source-folder
+    plugin: org.codehaus.mojo:build-helper-maven-plugin:1.9.1:add-source
+    plugin-config:
+      sources:
+        source: "${project.build.directory}/generated-sources"
+   -
+    name: generate-mojos
+    plugin: maven-custom-packaging-plugin:mojo-plugin:0.1:yaml2mojo
+
+generate-resources: 
+   -
+    name: generate-plugin-descriptor
+    plugin: org.apache.maven.plugins:maven-plugin-plugin:2.5.1:descriptor
+
+process-resources: 
+   -
+    name: resources
+    plugin: org.apache.maven.plugins:maven-resources-plugin:2.4.3:resources
+
+compile:
+   - 
+    name: list-dep 
+    plugin: org.apache.maven.plugins:maven-dependency-plugin:2.1:tree
+   - 
+    name: compile 
+    plugin: org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile
+    
+process-test-resources:
+   - 
+    name: process-test-resources
+    plugin: org.apache.maven.plugins:maven-resources-plugin:2.4.3:testResources
+
+test-compile:
+   - 
+    name: test-compile 
+    plugin: org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile
+    
+test:
+   - 
+    name: test 
+    plugin: org.apache.maven.plugins:maven-surefire-plugin:2.7.2:test
+    
+package:
+   - 
+    name: jar 
+    plugin: org.apache.maven.plugins:maven-jar-plugin:2.3.1:jar
+   - 
+    name: add-plugin-artifact-metadata 
+    plugin: org.apache.maven.plugins:maven-plugin-plugin:2.5.1:addPluginArtifactMetadata
+    
+install:
+   - 
+    name: install 
+    plugin: org.apache.maven.plugins:maven-install-plugin:2.3.1:install
+    
+deploy:
+   - 
+    name: deploy 
+    plugin: org.apache.maven.plugins:maven-deploy-plugin:2.5:deploy
