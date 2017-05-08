@@ -3,7 +3,7 @@
 
 	<groupId>maven-custom-packaging-plugin</groupId>
 	<artifactId>project</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
