@@ -13,7 +13,8 @@ import org.mvnlifeclycle.utils.MavenPluginWriter;
 import org.mvnlifeclycle.utils.YamlMojoReader;
 import org.mvnlifeclycle.utils.YamlUtils;
 
-import com.google.common.collect.Lists;
+import com.google.inject.internal.util.Lists;
+
 
 /**
  *
