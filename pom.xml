@@ -11,7 +11,7 @@
 	</properties>
 
 	<modules>
-		<module>mojo-plugin</module>
+		<module>yaml2mojo-maven-plugin</module>
 		<module>custom-packaging-maven-plugin</module>
 		<!-- <module>test</module> -->
 	</modules>
