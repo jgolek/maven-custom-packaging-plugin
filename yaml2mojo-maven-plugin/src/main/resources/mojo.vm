@@ -37,7 +37,7 @@ public class ${model.className}
 	/**
 	 * The Maven Project Object
 	 *
-	 * @parameter expression="\${project}"
+	 * @parameter property="\${project}"
 	 * @required
 	 * @readonly
 	 */
@@ -46,7 +46,7 @@ public class ${model.className}
 	/**
 	 * The Maven Session Object
 	 *
-	 * @parameter expression="\${session}"
+	 * @parameter property="\${session}"
 	 * @required
 	 * @readonly
 	 */
