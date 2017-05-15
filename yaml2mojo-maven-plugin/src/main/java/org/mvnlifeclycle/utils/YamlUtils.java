@@ -5,7 +5,7 @@ import java.util.Collection;
 
 import org.apache.commons.io.FileUtils;
 
-import com.google.inject.internal.util.Lists;
+import com.google.common.collect.Lists;
 
 public class YamlUtils {
 
