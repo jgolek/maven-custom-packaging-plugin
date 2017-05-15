@@ -11,11 +11,6 @@ generate-sources:
     name: generate-mojos
     plugin: org.jgolek:yaml2mojo-maven-plugin:0.2-SNAPSHOT:yaml2mojo
 
-generate-resources: 
-   -
-    name: generate-plugin-descriptor
-    plugin: org.apache.maven.plugins:maven-plugin-plugin:2.5.1:descriptor
-
 process-resources: 
    -
     name: resources
@@ -28,7 +23,13 @@ compile:
    - 
     name: compile 
     plugin: org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile
-    
+   -
+    name: generate-plugin-descriptor
+    plugin: org.apache.maven.plugins:maven-plugin-plugin:3.5:descriptor
+    plugin-config:
+      packagingTypes:
+        packagingType: "custom-packaging"
+            
 process-test-resources:
    - 
     name: process-test-resources
