@@ -1,9 +1,9 @@
-package org.mvnlifeclycle.utils;
+package org.jgolek.utils;
 
 import java.io.File;
 import java.util.List;
 
-import org.mvnlifeclycle.model.Lifecycle;
+import org.jgolek.model.Lifecycle;
 
 public class ComponentXmlWriter {
 

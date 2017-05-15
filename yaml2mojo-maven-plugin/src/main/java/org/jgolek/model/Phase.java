@@ -1,4 +1,4 @@
-package org.mvnlifeclycle.model;
+package org.jgolek.model;
 
 import java.util.ArrayList;
 import java.util.List;

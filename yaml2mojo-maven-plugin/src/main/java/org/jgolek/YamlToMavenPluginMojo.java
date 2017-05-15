@@ -1,4 +1,4 @@
-package org.mvnlifeclycle;
+package org.jgolek;
 
 import java.io.File;
 import java.util.Collection;
@@ -7,50 +7,38 @@ import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
-import org.mvnlifeclycle.model.Lifecycle;
-import org.mvnlifeclycle.utils.ComponentXmlWriter;
-import org.mvnlifeclycle.utils.MavenPluginWriter;
-import org.mvnlifeclycle.utils.YamlMojoReader;
-import org.mvnlifeclycle.utils.YamlUtils;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.jgolek.model.Lifecycle;
+import org.jgolek.utils.ComponentXmlWriter;
+import org.jgolek.utils.MavenPluginWriter;
+import org.jgolek.utils.YamlMojoReader;
+import org.jgolek.utils.YamlUtils;
 
-import com.google.inject.internal.util.Lists;
+import com.google.common.collect.Lists;
 
 
-/**
- *
- * @goal yaml2mojo
- * 
- */
+@Mojo( name = "yaml2mojo" )
 public class YamlToMavenPluginMojo extends AbstractMojo {
-    /**
-     * @parameter default-value="src/main/build/packaging"
-     */
+    
+    @Parameter( defaultValue="src/main/build/packaging" )
     protected File packagingFileDirectory;
 
-    /**
-     * @parameter default-value="src/main/build/goal"
-     */
+    @Parameter( defaultValue="src/main/build/goal" )
     protected File goalFileDirectory;
 
-    /**
-     * @parameter default-value="${project.build.directory}/generated-sources"
-     */
+    @Parameter( defaultValue="${project.build.directory}/generated-sources" )
     protected File outputDirectory;
 
-    /**
-     * @parameter default-value="${project.build.outputDirectory}"
-     */
+    @Parameter( defaultValue="${project.build.outputDirectory}" )
     protected File buildOutputDirectory;
 
-    /**
-     * @parameter default-value="org.mvnlifecycle"
-     */
+    @Parameter( defaultValue="${project.groupId}" )
     protected String mojoGroupId;
 
-    /**
-     * @parameter default-value="${project.artifactId}"
-     */
+    @Parameter( defaultValue="${project.artifactId}" )
     protected String mojoArtifactId;
+    
 
     public void execute() throws MojoExecutionException {
         Log logger = getLog();

@@ -1,4 +1,4 @@
-packaging: custom-packaging-maven-plugin
+packaging: custom-packaging
 ---
 generate-sources: 
    -
@@ -9,7 +9,7 @@ generate-sources:
         source: "${project.build.directory}/generated-sources"
    -
     name: generate-mojos
-    plugin: maven-custom-packaging-plugin:mojo-plugin:0.1:yaml2mojo
+    plugin: org.jgolek:yaml2mojo-maven-plugin:0.2-SNAPSHOT:yaml2mojo
 
 generate-resources: 
    -

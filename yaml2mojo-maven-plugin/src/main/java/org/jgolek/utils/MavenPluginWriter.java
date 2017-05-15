@@ -1,11 +1,11 @@
-package org.mvnlifeclycle.utils;
+package org.jgolek.utils;
 
 import java.io.File;
 
 import org.apache.commons.lang.StringUtils;
-import org.mvnlifeclycle.model.MojoModel;
-import org.mvnlifeclycle.model.Phase;
-import org.mvnlifeclycle.model.Lifecycle;
+import org.jgolek.model.Lifecycle;
+import org.jgolek.model.MojoModel;
+import org.jgolek.model.Phase;
 
 public class MavenPluginWriter {
 

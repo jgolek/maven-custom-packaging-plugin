@@ -1,11 +1,12 @@
-package org.mvnlifeclycle.utils;
+package org.jgolek.utils;
 
 import java.io.File;
 import java.util.Collection;
 
 import org.apache.commons.io.FileUtils;
 
-import com.google.inject.internal.util.Lists;
+import com.google.common.collect.Lists;
+
 
 
 public class YamlUtils {

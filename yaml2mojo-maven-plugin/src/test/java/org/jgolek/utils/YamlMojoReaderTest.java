@@ -1,4 +1,4 @@
-package org.mvnlifecycle.utils;
+package org.jgolek.utils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
+import org.jgolek.model.Lifecycle;
+import org.jgolek.model.MojoModel;
+import org.jgolek.model.Parameter;
+import org.jgolek.model.Phase;
+import org.jgolek.model.Plugin;
+import org.jgolek.utils.YamlMojoReader;
 import org.junit.Test;
-import org.mvnlifeclycle.model.MojoModel;
-import org.mvnlifeclycle.model.Parameter;
-import org.mvnlifeclycle.model.Phase;
-import org.mvnlifeclycle.model.Plugin;
-import org.mvnlifeclycle.model.Lifecycle;
-import org.mvnlifeclycle.utils.YamlMojoReader;
 
 public class YamlMojoReaderTest {
 

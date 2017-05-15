@@ -1,4 +1,4 @@
-package org.mvnlifeclycle.utils;
+package org.jgolek.utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,11 +11,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;
-import org.mvnlifeclycle.model.Lifecycle;
-import org.mvnlifeclycle.model.MojoModel;
-import org.mvnlifeclycle.model.Parameter;
-import org.mvnlifeclycle.model.Phase;
-import org.mvnlifeclycle.model.Plugin;
+import org.jgolek.model.Lifecycle;
+import org.jgolek.model.MojoModel;
+import org.jgolek.model.Parameter;
+import org.jgolek.model.Phase;
+import org.jgolek.model.Plugin;
 import org.yaml.snakeyaml.Yaml;
 
 public class YamlMojoReader {

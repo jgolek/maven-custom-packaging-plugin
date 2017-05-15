@@ -1,4 +1,4 @@
-package org.mvnlifeclycle.utils;
+package org.jgolek.utils;
 
 import java.io.File;
 import java.io.FileWriter;

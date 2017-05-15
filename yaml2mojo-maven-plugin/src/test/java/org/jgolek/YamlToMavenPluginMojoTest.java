@@ -1,9 +1,9 @@
-package org.mvnlifecycle;
+package org.jgolek;
 
 import java.io.File;
 
+import org.jgolek.YamlToMavenPluginMojo;
 import org.junit.Test;
-import org.mvnlifeclycle.YamlToMavenPluginMojo;
 
 public class YamlToMavenPluginMojoTest extends YamlToMavenPluginMojo {
 
