@@ -1,4 +1,4 @@
-packaging: maven-plugin
+packaging: custom-packaging-maven-plugin
 ---
 generate-sources: 
    -

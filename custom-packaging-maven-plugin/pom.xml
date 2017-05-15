@@ -7,7 +7,8 @@
 	<version>0.1.0</version>
   </parent>
 
-  <artifactId>maven-plugin</artifactId>
+  <artifactId>custom-packaging-maven-plugin</artifactId>
+  
   <packaging>maven-plugin</packaging>
 
   <dependencies>

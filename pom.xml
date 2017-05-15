@@ -3,7 +3,7 @@
 
 	<groupId>maven-custom-packaging-plugin</groupId>
 	<artifactId>project</artifactId>
-	<version>0.1.0</version>
+	<version>0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -12,7 +12,7 @@
 
 	<modules>
 		<module>mojo-plugin</module>
-		<module>maven-plugin</module>
+		<module>custom-packaging-maven-plugin</module>
 		<!-- <module>test</module> -->
 	</modules>
 
